@@ -7,11 +7,8 @@ bgr_img = cv2.imread('variant-3.jpeg')
 hsv_img = cv2.cvtColor(bgr_img, cv2.COLOR_BGR2HSV)
 cv2.imwrite('hsv_image.jpeg', hsv_img)
 
-
 cv2.imshow("Original Image", bgr_img)
 cv2.imshow('HSV image', hsv_img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
 
 # 2, 3 пункты + допзадание
 def video_processing():
