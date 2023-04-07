@@ -19,8 +19,8 @@ def video_processing():
     img_height, img_width, _ = img.shape
     color_red = (0, 0, 255)
     a, b = 200, 200
-    left_ang = (down_points[0]-a)//2, down_points[1]-b)//2) 
-    right_ang = (down_points[0]-a)//2 + a, down_points[1]-b)//2 + b) 
+    left_ang = ((down_points[0]-a)//2, down_points[1]-b)//2) 
+    right_ang = ((down_points[0]-a)//2 + a, down_points[1]-b)//2 + b) 
     while True:
         ret, frame = cap.read()
         if not ret:
