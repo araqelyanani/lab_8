@@ -18,7 +18,9 @@ def video_processing():
     img = cv2.imread('img_1.png')
     img_height, img_width, _ = img.shape
     color_red = (0, 0, 255)
-
+    a, b = 200, 200
+    left_ang = (down_points[0]-a)//2, down_points[1]-b)//2) 
+    right_ang = (down_points[0]-a)//2 + a, down_points[1]-b)//2 + b) 
     while True:
         ret, frame = cap.read()
         if not ret:
@@ -28,8 +30,7 @@ def video_processing():
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.GaussianBlur(gray, (21, 21), 0)
         ret, thresh = cv2.threshold(gray, 110, 255, cv2.THRESH_BINARY_INV)
-
-        cv2.rectangle(frame, (220, 140), (440, 340), color_red, thickness=2, lineType=8, shift=0)  # квадрат 200х200
+        cv2.rectangle(frame, left_ang, right_ang, color_red, thickness=2, lineType=8, shift=0)  # квадрат 200х200
         contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         if len(contours) > 0:
             c = max(contours, key=cv2.contourArea)
